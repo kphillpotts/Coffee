@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Coffee.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Grid>
+
+        <ContentView x:Name="MyBagView">
+            <BoxView Color="{StaticResource AccentColor}" />
+        </ContentView>
+
+        <ContentView x:Name="FrontCard">
+            <Grid RowDefinitions="*, AUTO, AUTO, 25">
+
+                <!--  background of the card  -->
+                <BoxView
+                    Grid.RowSpan="4"
+                    Margin="0,-25,0,0"
+                    CornerRadius="0,0,25,25"
+                    Color="{StaticResource FrontCardBackground}" />
+
+                <Button
+                    Grid.Row="2"
+                    Margin="20,0"
+                    BackgroundColor="{StaticResource AccentColor}"
+                    Clicked="AddToBag_Clicked"
+                    CornerRadius="20"
+                    HeightRequest="40"
+                    Text="Add To Bag"
+                    TextColor="White"
+                    TextTransform="None" />
+
+                <!--  hit box for the gesture recognizer  -->
+                <BoxView Grid.Row="3">
+                    <BoxView.GestureRecognizers>
+                        <PanGestureRecognizer PanUpdated="PanGestureRecognizer_PanUpdated" />
+                        <!--<SwipeGestureRecognizer Direction="Up" Swiped="SwipeUp_Swiped" />
+                        <SwipeGestureRecognizer Direction="Down" Swiped="SwipeDown_Swiped" />-->
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+
+                <!--  thumb  -->
+                <BoxView
+                    x:Name="Thumb"
+                    Grid.Row="3"
+                    CornerRadius="2"
+                    HeightRequest="4"
+                    HorizontalOptions="Center"
+                    InputTransparent="True"
+                    Opacity="0"
+                    VerticalOptions="Center"
+                    WidthRequest="80"
+                    Color="{StaticResource TextColorLight}" />
+
+            </Grid>
+
+
+
+        </ContentView>
+
+    </Grid>
+
+</ContentPage>

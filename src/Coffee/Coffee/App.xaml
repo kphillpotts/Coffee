@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application
+    x:Class="Coffee.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Application.Resources>
+
+        <!--  colors  -->
+        <Color x:Key="AccentColor">#1B714B</Color>
+        <Color x:Key="AccentColorLight">#E5F0EC</Color>
+        <Color x:Key="FrontCardBackground">#FFFFFF</Color>
+
+        <Color x:Key="TextColor">#242424</Color>
+        <Color x:Key="TextColorLight">#999999</Color>
+
+    </Application.Resources>
+</Application>
