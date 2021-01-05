@@ -10,8 +10,63 @@
         <Color x:Key="AccentColorLight">#E5F0EC</Color>
         <Color x:Key="FrontCardBackground">#FFFFFF</Color>
 
+        <Color x:Key="SizeBackgroundUnselected">#F8F8F8</Color>
+
+        <Color x:Key="SelectedSizeBackground">#E5F0EC</Color>
+
+        <Color x:Key="UnselectedSizeBackground">#F8F8F8</Color>
+        <Color x:Key="UnselectedSizeBorder">#E1E1E1</Color>
+
         <Color x:Key="TextColor">#242424</Color>
         <Color x:Key="TextColorLight">#999999</Color>
+
+        <Style x:Key="HeaderText" TargetType="Label">
+            <Setter Property="FontFamily" Value="SemiBoldFont" />
+            <Setter Property="FontSize" Value="26" />
+            <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+        </Style>
+
+        <Style
+            x:Key="HeaderTextLight"
+            BasedOn="{StaticResource HeaderText}"
+            TargetType="Label">
+            <Setter Property="TextColor" Value="White" />
+        </Style>
+
+        <Style x:Key="DescriptionText" TargetType="Label">
+            <Setter Property="FontFamily" Value="LightFont" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="TextColor" Value="{StaticResource TextColorLight}" />
+        </Style>
+
+        <Style x:Key="SmallCurrencyText" TargetType="Label">
+            <Setter Property="FontFamily" Value="SemiBoldFont" />
+            <Setter Property="FontSize" Value="28" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+        </Style>
+
+        <Style x:Key="LargeCurrencyText" TargetType="Label">
+            <Setter Property="FontFamily" Value="SemiBoldFont" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="FontSize" Value="48" />
+            <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+        </Style>
+
+        <Style x:Key="ShoppingItemHeader" TargetType="Label">
+            <Setter Property="FontFamily" Value="SemiBoldFont" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="TextColor" Value="White" />
+        </Style>
+
+        <Style x:Key="ShoppingItemDetail" TargetType="Label">
+            <Setter Property="FontFamily" Value="LightFont" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="TextColor" Value="White" />
+        </Style>
+
+
+
 
     </Application.Resources>
 </Application>

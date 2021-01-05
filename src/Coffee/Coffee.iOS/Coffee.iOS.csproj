@@ -133,4 +133,13 @@
       <Name>Coffee</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\MochaFrappuccino.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\MochaFrappuccino%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\MochaFrappuccino%403x.png" />
+  </ItemGroup>
 </Project>
