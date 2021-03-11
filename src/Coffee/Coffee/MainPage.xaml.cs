@@ -29,16 +29,22 @@ namespace Coffee
         private double pageHeight;
         private double thumbHeight = 25;
         private double openThreshold = -300; // should be 1/3 of the screen
+        private bool hasSizeBeenCalculated;
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
             CentsFlip.AnimationOffset = new Point(0, 20);
+            if (hasSizeBeenCalculated)
+            {
+                SetupStates();
+            }
         }
 
         protected override void OnSizeAllocated(double width, double height)
         {
             base.OnSizeAllocated(width, height);
+            hasSizeBeenCalculated = true;
             pageHeight = height;
             SetupStates();
         }
