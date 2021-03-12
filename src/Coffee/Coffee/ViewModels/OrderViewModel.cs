@@ -46,33 +46,55 @@ namespace Coffee.ViewModels
 
             // create a fake shopping cart item
             Items = new ObservableRangeCollection<ShoppingCartItem>();
-            Items.Add(new ShoppingCartItem
-            {
-                Name = "Caramel Frappuccino",
-                Size = "M",
-                Price = 4.85m,
-                Quantity = 1,
-                ImageUrl = "MochaFrappuccino.png"
-            });
+            Items.CollectionChanged += Items_CollectionChanged;
+            //Items.Add(new ShoppingCartItem
+            //{
+            //    Name = "Caramel Frappuccino",
+            //    Size = "M",
+            //    Price = 4.85m,
+            //    Quantity = 1,
+            //    ImageUrl = "MochaFrappuccino.png"
+            //});
+            //Items.Add(new ShoppingCartItem
+            //{
+            //    Name = "Mocha Frappuccino",
+            //    Size = "L",
+            //    Price = 5.20m,
+            //    Quantity = 1,
+            //    ImageUrl = "MochaFrappuccino.png"
+            //});
 
-            Items.Add(new ShoppingCartItem
-            {
-                Name = "Mocha Frappuccino",
-                Size = "L",
-                Price = 5.20m,
-                Quantity = 1,
-                ImageUrl = "MochaFrappuccino.png"
-            });
+        }
 
+        private void Items_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            OnPropertyChanged(nameof(TotalPrice));
         }
     }
 
     public class ShoppingCartItem : BaseViewModel
     {
+        private CoffeeItem selectedItem;
+        private decimal price;
+
+        public ShoppingCartItem() { }
+
+        public ShoppingCartItem(CoffeeItem selectedItem)
+        {
+            // make a shopping cart item from the current item
+            Name = selectedItem.Name;
+            Quantity = 1;
+            Size = selectedItem.Size;
+            ImageUrl = selectedItem.ImageUrl;
+            Price = selectedItem.SelectedSizePrice;
+        }
+
         public string Name { get; set; }
         public int Quantity { get; set; }
         public string Size { get; set; }
-        public decimal Price { get; set; }
+        public decimal Price { 
+            get => price; 
+            set => SetProperty(ref price,value); }
         public string ImageUrl { get; internal set; }
     }
 
@@ -86,5 +108,18 @@ namespace Coffee.ViewModels
         public decimal MediumPrice { get; set; }
         public decimal LargePrice { get; set; }
         public string ImageUrl { get; set; }
+        public string Size { get; internal set; }
+        public decimal SelectedSizePrice 
+        { 
+            get
+            {
+                if (Size == "S")
+                    return SmallPrice;
+                if (Size == "M")
+                    return MediumPrice;
+                
+                return LargePrice;
+            }
+        }
     }
 }

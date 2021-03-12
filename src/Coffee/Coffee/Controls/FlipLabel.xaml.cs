@@ -204,6 +204,7 @@ namespace Coffee.Controls
                 character.Text = "0";
                 character.AnimationOffset = new Point(0, 20);
                 character.AnimationSpeed = this.AnimationSpeed;
+                character.TextStyle = this.TextStyle;
                 this.Children.Add(character);
             }
         }
